@@ -1,6 +1,8 @@
 import { Conversation } from '../types'
 import styled from '@emotion/styled'
 import { useRecipient } from '../hooks/useRecipient'
+import RecipientAvatar from './RecipientAvatar'
+import Router from 'next/router'
 
 const StyledContainer = styled.div`
   display: flex;
@@ -16,9 +18,14 @@ const StyledContainer = styled.div`
 const ConversationSelect = ({ id, conversationUsers }: { id: string; conversationUsers: Conversation['users'] }) => {
   const { recipient, recipientEmail } = useRecipient(conversationUsers)
 
+	const onSelectConversation = () => {
+		Router.push(`/conversations/${id}`)
+	}
+
   return (
-    <StyledContainer>
-      {recipientEmail}
+    <StyledContainer onClick={onSelectConversation}>
+      <RecipientAvatar recipient={recipient} recipientEmail={recipientEmail} />
+      <span>{recipientEmail}</span>
     </StyledContainer>
   )
 }
