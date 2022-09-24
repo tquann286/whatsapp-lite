@@ -3,12 +3,12 @@ import { getFirestore } from 'firebase/firestore'
 import { getAuth, GoogleAuthProvider } from 'firebase/auth'
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyA10vZ6TKJaI0Z844xaHAJsGUfeu4U9RUc',
-  authDomain: 'whats-app-lite-adbe6.firebaseapp.com',
-  projectId: 'whats-app-lite-adbe6',
-  storageBucket: 'whats-app-lite-adbe6.appspot.com',
-  messagingSenderId: '625751308095',
-  appId: '1:625751308095:web:5a669d472677c9f34c458a',
+  apiKey: process.env.NEXT_PUBLIC_APIKEY,
+  authDomain: process.env.NEXT_PUBLIC_AUTHDOMAIN,
+  projectId: process.env.NEXT_PUBLIC_PROJECTID,
+  storageBucket: process.env.NEXT_PUBLIC_STORAGEBUCKET,
+  messagingSenderId: process.env.NEXT_PUBLIC_MESSAGINGSENDERID,
+  appId: process.env.NEXT_PUBLIC_APPID,
 }
 
 const app = getApps().length ? getApp() : initializeApp(firebaseConfig)
